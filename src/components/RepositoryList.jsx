@@ -2,14 +2,6 @@ import { useState, useEffect } from "react";
 import {RepositoryItem} from "./RepositoryItem";
 import '../styles/repositories.scss';
 
-// https://api.github.com/orgs/rocketseat/repos
-
-const repository = {
-    name:"Unform1" ,
-    description:"Forms in React with props" ,
-    link:"https://github.com/gabrieldasneves?tab=repositories"
-}
-
 
 export function RepositoryList(){
 
@@ -26,9 +18,9 @@ export function RepositoryList(){
             <h1>Lista de repositórios</h1>
 
             <ul>
-                <RepositoryItem repository={repository}/>
-                <RepositoryItem repository={repository}/>
-                <RepositoryItem repository={repository}/>
+                {repositories.map(repository => {
+                    return <RepositoryItem key={repository.name} repository={repository}/>
+                })}
             </ul>
         </section>
     );
